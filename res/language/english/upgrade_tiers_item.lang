@@ -1,0 +1,5 @@
+<lang>
+	<string name="menu.blacksmith.level_up_button">+1 Level</string>
+	<string name="menu.blacksmith.tier_up_button">Next Tier</string>
+	<string name="menu.blacksmith.no_upgrades">You have no equipped items that can be upgraded.</string>
+</lang>

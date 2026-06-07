@@ -1,0 +1,65 @@
+%include "gui/main_menu/options_base.inc"
+
+<gui>
+	<sprites>
+		%block OptionsSprites
+		%include "gui/scalablebutton_sprites.inc"
+		%include "gui/panel_decoration.inc"
+
+		<!-- Frame -->
+		<sprite name="icon-frame" texture="gui/gui.png"><frame>76 210 28 28</frame></sprite>
+		<sprite name="selected" texture="gui/gui.png"><frame>258 178 13 11</frame></sprite>
+	</sprites>
+
+	<doc>
+		<group>
+			<group width="321" height="305" anchor="0.5 0.5" >
+				<!-- Content -->
+				<panel id="content" width="321" height="305" anchor="0.5 0.5" style="standard" >
+					<!-- Header -->
+					<panel anchor="0.5 0" width="321" height="35" offset="0 0" style="character_pick_top">
+						<text id="title" anchor="0.5 0.5" offset="0 2" text=".menu.blacksmith.title" font="header" />
+					</panel>
+
+					<scalebutton id="close" func="close" only-mouse="true" spriteset="cross" width="11" offset="-2 2" anchor="1 0" />
+
+					%block DefaultShopDecorations
+
+					<group id="equipment" width="100%" height="100%" visible="true">
+						<rect anchor="1 0" width="15" height="234" offset="-10 42" spriteset="gui/sprite_rect.sval:square-roundedleft" />
+						<rect anchor="0 0" width="288" height="234" offset="9 42" spriteset="gui/sprite_rect.sval:square-roundedtopleft" >
+							<text id="empty" anchor="0.5 0.5" offset="0 0" text="" align="center" width="260" font="gui/fonts/hw8.fnt" />
+							<scrollbar id="equipment-list" spriteset="angular-scrollbar" width="280" height="228" anchor="0 0.5" offset="4 0" bar-offset="6 0" escape-up="false" escape-down="false" flow="vbox" >
+							</scrollbar>
+						</rect>
+					</group>
+
+					<rect anchor="0.5 1" width="302" height="19" offset="0 -10" spriteset="gui/sprite_rect.sval:rounded-squaretopleft" >
+						<text id="currency" anchor="0.5 0.5" offset="0 1" text="N/A" font="gui/fonts/hw8.fnt" />
+					</rect>
+				</panel>
+
+				<tooltip-anchor tooltip-anchor="1 0" offset="-2 0" />
+			</group>
+
+			<!-- Templates -->
+			<enchant-equipment-item id="entry-template" visible="false" icon-frame="icon-frame" title="Chilling Bastard Sword of Deflection" title-width="155" width="282" height="46" offset="-1 0" 
+				spriteset="gui/sprite_rect.sval:entry-shop-building" 
+				spriteset-trim="gui/sprite_rect.sval:entry-shop-building-trim" 
+				spriteset-mid="gui/sprite_rect.sval:entry-shop-building-mid" 
+			>
+				<!-- button-1 is for Level +1 -->
+				<entry-shop-enchant-equipment-item-option id="button-1" visible="false" nav-pos="0 0" func="" title="+1 Level" cost="" width="58" height="38" anchor="1 0.5" offset="-1 0" 
+					spriteset="gui/sprite_rect.sval:entry-shop-building" 
+					spriteset-hover="gui/sprite_rect.sval:entry-shop-building-hover"
+				/>
+				<!-- button-2 is for Tier Upgrade -->
+				<entry-shop-enchant-equipment-item-option id="button-2" visible="false" nav-pos="0 1" func="" title="Upgrade Tier" cost="" width="58" height="38" anchor="1 0.5" offset="-61 0" 
+					spriteset="gui/sprite_rect.sval:entry-shop-building" 
+					spriteset-hover="gui/sprite_rect.sval:entry-shop-building-hover"
+				/>
+			</enchant-equipment-item>
+
+		</group>
+	</doc>
+</gui>
